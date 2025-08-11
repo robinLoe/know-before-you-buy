@@ -11,6 +11,7 @@ import com.kbyb.know_before_you_buy.service.PrivacyPropertyCsvImportService;
 public class DataLoaderConfig {
 
     @Bean
+    @SuppressWarnings("unused")
     CommandLineRunner initDatabase(PrivacyPropertyCsvImportService importService,
                                     PrivacyPropertyRepository repository) {
         return args -> {
