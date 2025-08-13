@@ -11,7 +11,8 @@ public class PrivacyValueDTO {
     private String propertyName;
     private String value;
     
-    public PrivacyValueDTO(String propertyName, String value) {
+    public PrivacyValueDTO(Integer id, String propertyName, String value) {
+        this.propertyId = id;
         this.propertyName = propertyName;
         this.value = value;
     }
