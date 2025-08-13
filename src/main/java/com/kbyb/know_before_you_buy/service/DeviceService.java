@@ -49,6 +49,7 @@ public class DeviceService {
                 .findAllByDeviceName(name)
                 .stream()
                 .map(dpv -> new PrivacyValueDTO(
+                        dpv.getPrivacyProperty().getId(),
                         dpv.getPrivacyProperty().getName(),
                         dpv.getValue()
                 ))
@@ -56,6 +57,8 @@ public class DeviceService {
 
         return new DeviceWithPrivacyValuesDTO(device, privacyValues);
     }
+
+    
 
 
     @Transactional
