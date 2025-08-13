@@ -1,53 +1,74 @@
-Property ID;Name;Beschreibung;Category;Metric
-1;Compliance with Cyber Resilience Act;IoT-Products provide information conforming with the Cyber Resilience Act.;none;{is compliant / is not compliant} with CRA
-2;Compliance Support;IoT-Products support owners/controllers with informing affected people about the use of personal information.;Support;the product {does / does not} help the owner perform his obligations towards thrid parties
-3;Seperate Data Protection Information from Terms & Conditions;Data protection information should be seperated from common Terms & Conditions;Usability of Transparency;data protection informantion is {spereated / not seperated} from terms and conditions
-4;Secure Default Settings;IoT-Products are shipped with maximized privacy protection settings, that only allows processing of personal data relevant to the pupose of the device.;Implementation Detail;list of possible and activated settings
-5;Resetting to Secure Default Settings;IoT-Products are able to be easily reset to data protection preserving and secure default settings. ;Control Function;products {can be / can not be} reset to private default settings
-6;Data Minimisation;IoT-Products only process personal data that is necessary in relation to the prupose of the device.;Data Handling;list of processed personal data types
-7;Legal Grounds;IoT products process personal data in accordance with a legal basis and make this transparent to the user.;Transparency Information;list of stated legal grounds
-8;Controll of sent Data;IoT-Products allow users to control the type of data that is sent.;Control Function;list of data types that can be controlled to be shared
-9;Controll of Data Recipient;IoT-Products allow users to controll the recipient of sent data.;Control Function;list of recipients that can be selected
-11;Special Categories of Data;An IoT product processes personal data of the special category ;Transparency Information;list of personal data types of special category that are processed
-12;Actors Involved in the Processing;Which actors (controller, joint controller, processor) are involved.;Transparency Information;list of involved actors and their role
-13;Availability of Contracts for Joint Controllers/Processors;Contract templates are available for joint controllers/processors.;Support;possible provided contract template
-14;Clear and Transparent Personal Data Processing Information;Information on the processing of personal data is provided in a concise, transparent, intelligible, and easily accessible form.;Usability of Transparency;document informing the user about data processing (privacy policy,visualization)
-15;Recipient of Information;Who receives the data obtained through the use of an IoT product.;Transparency Information;list of data recipients
-16;App Permissions Required;Which access permissions must be granted for the use of an app belonging to an IoT product.;Transparency Information;list of necessary permissions
-17;Clarification of data processing process;The system informs users about the processingof data.;Transparency Information;user {are / are not} informed about the processing of data
-18;Data Sharing;Whether data collected from the use of an IoT product is shared with third parties;Transparency Information;list of shared data types and recipients
-19;Encryption Status for User Passwords;Whether access data is stored in encrypted form on the IoT products or the associated apps;Implementation Detail;User password {are / are not} stored encrypted
-20;Optional Security Review;If an additional security review has taken place, it should be clear exactly which aspects were examined and who performed the tests.;Transparency Information;list of considered aspects, entity that performed the review (if possible, the whole security review?)
-21;Authentication Information;The type of user authentication of an IoT device, e.g., single-factor authentication, user-generated passowrd, no password recover;Implementation Detail;list of user authentication methods provided by the product
-22;Intuitive Privacy Control Interface;The IoT-Product features an intuitive and user-friendly interface that allows users to easily control their privacy settings.;Usability of Control;Image of the user interface
-23;Visual Representation of Privacy Flow;The IoT-Product features graphical repesentations of data flows or visualizations of privacy settings;Usability of Transparency;a graphic of data flows or privacy settings
-24;User controlled data processing location;Users can decide for themselves where their data is processed (free choice of a cloud provider);Control Function;list of possible processing locations
-25;Contextual Data Disclosure;The IoT-Product features contextualized information when users are requested to disclose data or consent to data usage.;Transparency Function;the product {does / does not} provide contextualized information when asking for user decisions
-26;Additional Transparency Mechanisms;The IoT-Product features transparency mechanisms like notice and choice designs, labels, or notifications with data-related privacy designs.;Transparency Function;list of transparency mechanisms used
-27;Different Granularity of Privacy Settings of UI;The IoT-Product presents options that define a combination of privacy settings that users can easily select to achieve their desired level of privacy without extensive manual configuration. For example, they can select between high, medium, and low privacy. ;Usability of Control;list of provided privacy setting combinations
-28;Profiling;The IoT-Product features functions that involve automated decision-making (profiling);Transparency Information;list of features with automated decision making
-29;Subject Rights;The IoT-Product (service) supports users to make use of their subject rights.;Usability of Transparency;list of options provided to help users make use of their rights
-30;Listing non Personally Identifiable Information;The IoT-Product provides functionality to list non-personally identifiable information (NPII) collected from IoT sensors or other sources. NPII include, for instance, temperature, humidity, and other similar metrics that do not directly identify an individual but can become personally identifiable when combined with other datasets;Transparency Information;provided list of NPII collected by the product
-31; (Security) Update Status Display;The IoT-Product provides functionality for users to gain an overview of the current system's update status.;Transparency Function;list of provided informations regarding the update status
-32;Exploration Functionality;The IoT-Product provides functionality for users to browse specific system interactions, e.g., a list of communications within the system, a list of all communications over the internet, or visualizations of activities. ;Transparency Function;list of system interactions the user can browse
-33;Investigation Functionality;The IoT-Product features a log of events including errors, updates etc.ï¿½This feature would allow for in-depth tracking and thoroughly investigation of occurring issues.;Transparency Function;list of all events that get logged
-34;Being notified when something needs attention;The IoT-Product triggers notifications when users' attention is needed (e.g., in case of information being sent over the internet, errors occur, in case of abnormal or suspicious occurrences;Transparency Function;list of events that trigger notifications
-36;User Control;The IoT-Product offers to manage multiple authorized users.;Control Function;the poduct {can / can not} manage multiple authorized users
-39;User Interaction and Engagement;The IoT-Product offers an appropriate user interface (e.g. through an app or a web application) ;Control Function;list of provided interface options
-40;Privacy Enhancing Technologies;The IoT-Product features PETs to safeguard users' privacy;Implementation Detail;list of used privacy enhancing technologies
-41;Data Portability;The IoT-Product / related service features portability functions to migrate from/to other products;Control Function;list of portability options
-42;Backend Service Demands;The IoT-Product requires connection to a specific backend service;Implementation Detail;list of necessary backend services
-43;Updateability;The IoT-Product features an update functionality and specifies the planned lifetime;Implementation Detail;end of lifetime date / lifetime duration
-44;History of Data Leakage;Documented data leaks in connection with the IoT product;Transparency Information;list of documented data leaks associated with the service provider
-45;Privacy Breaches;There are currently known data breaches associated with the IoT product.;Transparency Information;list of known data breaches associated with the service provider
-46;Open Source;Which part of the IoT product is based on IoT software;Implementation Detail;list of open source software components used in the product
-47;TLS Certificate Validation;The IoT-Product uses secure communication channels and validates server certificates;Implementation Detail;the product {does / does not} use secure communication channels
-50;Duration and the company/entity of data being stored;The IoT-Product should clearly specify the duration for which the data is stored and identify the company or entity responsible for storing it;Transparency Information;list of stored data type, storage duration and responsible entity 
-51;Purpose of data being collected;The IoT-Product provides a detailed explanation of the reasons for collecting the data;Transparency Information;list of processing purposes
-52;Frequency of data being sent ;The IoT-Product indicates how often the data is transmitted;Transparency Information;list of collected data type and transmission frequency
-53;Data processing outside the EU;The IoT-Product indicates wether data is being transmitted outside the EU;Transparency Information;list of data being transmitted outside the EU
-54;Location of data being sent to;The IoT-Product indicates to which location (company & country) data is being transmitted;Transparency Information;list of data recipients with country
-55;Controllable discovery function;The IoT product lets the user decide whether or not to automatically search for other devices on the network;Implementation Detail;the product {does / does not} allow users to controll if the product should search for / connect with other devices in the network
-56;On-device data processing;The data is preferably processed locally.;Implementation Detail;the product {does / does not} process data localy by default
-57;Account Required for Device Bootstrapping;An account is required to set up the IoT device.;Implementation Detail;the product {does / does not} need an account to be used
-59;Ensure informed consent to changes in data processing; An interface enables users to compare current and new terms side-by-side with highlighted changes. This ensures informed consent.;Transparency Function;the product provides the functionality to compare current and new Privacy Policy
+Property ID;Name;Description;Category;Metric;Has Accepted Values;Accepted Value
+1;Compliance with Cyber Resilience Act;IoT-Products provide information conforming with the Cyber Resilience Act.;  ;{is compliant / is not compliant} with CRA;true;is compliant with CRA, is not compliant with CRA
+2;Compliance Support;IoT-Products support owners/controllers with informing affected people about the use of personal information.;Support;the product {does / does not} help the owner perform his obligations towards third parties;true;the product does help the owner perform his obligations towards third parties, the product does not help the owner perform his obligations towards third parties
+3;Separate Data Protection Information from Terms & Conditions;Data protection information should be separated from common Terms & Conditions;Usability of Transparency;data protection information is {separated / not separated} from terms and conditions;true;data protection information is separated from terms and conditions, data protection information is not separated from terms and conditions
+4;Secure Default Settings;IoT-Products are shipped with maximized privacy protection settings, that only allows processing of personal data relevant to the purpose of the device.;Implementation Detail;list of possible and activated settings;false;
+5;Resetting to Secure Default Settings;IoT-Products are able to be easily reset to data protection preserving and secure default settings. ;Control Function;products {can be / can not be} reset to private default settings;true;products can be reset to private default settings, products cannot be reset to private default settings
+6;Data Minimization;IoT-Products only process personal data that is necessary in relation to the purpose of the device.;Data Handling;list of processed personal data types;false;
+7;Legal Grounds;IoT products process personal data in accordance with a legal basis and make this transparent to the user.;Transparency Information;list of stated legal grounds;false;
+8;Control of Sent Data;IoT-Products allow users to control the type of data that is sent.;Control Function;list of data types that can be controlled to be shared;false;
+9;Control of Data Recipient;IoT-Products allow users to control the recipient of sent data.;Control Function;list of recipients that can be selected;false;
+11;Special Categories of Data;An IoT product processes personal data of the special category ;Transparency Information;list of personal data types of special category that are processed;false;
+12;Actors Involved in the Processing;Which actors (controller, joint controller, processor) are involved.;Transparency Information;list of involved actors and their role;false;
+13;Availability of Contracts for Joint Controllers/Processors;Contract templates are available for joint controllers/processors.;Support;possible provided contract template;false;
+14;Clear and Transparent Personal Data Processing Information;Information on the processing of personal data is provided in a concise, transparent, intelligible, and easily accessible form.;Usability of Transparency;document informing the user about data processing (privacy policy, visualization);false;
+15;Recipient of Information;Who receives the data obtained through the use of an IoT product.;Transparency Information;list of data recipients;false;
+16;App Permissions Required;Which access permissions must be granted for the use of an app belonging to an IoT product.;Transparency Information;list of necessary permissions;false;
+17;Clarification of Data Processing;The system informs users about the processing of data.;Transparency Information;user {are / are not} informed about the processing of data;true;users are informed about the processing of data, users are not informed about the processing of data
+18;Data Sharing;Whether data collected from the use of an IoT product is shared with third parties;Transparency Information;list of shared data types and recipients;false;
+19;Encryption Status for User Passwords;Whether access data is stored in encrypted form on the IoT products or the associated apps;Implementation Detail;User passwords {are / are not} stored encrypted;true;User passwords are stored encrypted, User passwords are not stored encrypted
+20;Optional Security Review;If an additional security review has taken place, it should be clear exactly which aspects were examined and who performed the tests.;Transparency Information;list of considered aspects, entity that performed the review (if possible, the whole security review?);false;
+21;Authentication Information;The type of user authentication of an IoT device, e.g., single-factor authentication, user-generated password, no password recover;Implementation Detail;list of user authentication methods provided by the product;false;
+22;Intuitive Privacy Control Interface;The IoT-Product features an intuitive and user-friendly interface that allows users to easily control their privacy settings.;Usability of Control;Image of the user interface;false;
+23;Visual Representation of Privacy Flow;The IoT-Product features graphical representations of data flows or visualizations of privacy settings;Usability of Transparency;a graphic of data flows or privacy settings;false;
+24;User Controlled Data Processing Location;Users can decide for themselves where their data is processed (free choice of a cloud provider);Control Function;list of possible processing locations;false;
+25;Contextual Data Disclosure;The IoT-Product features contextualized information when users are requested to disclose data or consent to data usage.;Transparency Function;the product {does / does not} provide contextualized information when asking for user decisions;true;the product does provide contextualized information when asking for user decisions, the product does not provide contextualized information when asking for user decisions
+26;Additional Transparency Mechanisms;The IoT-Product features transparency mechanisms like notice and choice designs, labels, or notifications with data-related privacy designs.;Transparency Function;list of transparency mechanisms used;false;
+27;Different Granularity of Privacy Settings of UI;The IoT-Product presents options that define a combination of privacy settings that users can easily select to achieve their desired level of privacy without extensive manual configuration. For example, they can select between high, medium, and low privacy. ;Usability of Control;list of provided privacy setting combinations;false;
+28;Profiling;The IoT-Product features functions that involve automated decision-making (profiling);Transparency Information;list of features with automated decision making;false;
+29;Subject Rights;The IoT-Product (service) supports users to make use of their subject rights.;Usability of Transparency;list of options provided to help users make use of their rights;false;
+30;Listing Non-Personally Identifiable Information;The IoT-Product provides functionality to list non-personally identifiable information (NPII) collected from IoT sensors or other sources. NPII include, for instance, temperature, humidity, and other similar metrics that do not directly identify an individual but can become personally identifiable when combined with other datasets;Transparency Information;provided list of NPII collected by the product;false;
+31;(Security) Update Status Display;The IoT-Product provides functionality for users to gain an overview of the current system's update status.;Transparency Function;list of provided information regarding the update status;false;
+32;Exploration Functionality;The IoT-Product provides functionality for users to browse specific system interactions, e.g., a list of communications within the system, a list of all communications over the internet, or visualizations of activities. ;Transparency Function;list of system interactions the user can browse;false;
+33;Investigation Functionality;The IoT-Product features a log of events including errors, updates etc. This feature would allow for in-depth tracking and thoroughly investigation of occurring issues.;Transparency Function;list of all events that get logged;false;
+34;Being Notified When Something Needs Attention;The IoT-Product triggers notifications when users' attention is needed (e.g., in case of information being sent over the internet, errors occur, in case of abnormal or suspicious occurrences;Transparency Function;list of events that trigger notifications;false;
+36;User Control;The IoT-Product offers to manage multiple authorized users.;Control Function;the product {can / can not} manage multiple authorized users;true;the product can manage multiple authorized users, the product cannot manage multiple authorized users
+39;User Interaction and Engagement;The IoT-Product offers an appropriate user interface (e.g. through an app or a web application) ;Control Function;list of provided interface options;false;
+40;Privacy Enhancing Technologies;The IoT-Product features PETs to safeguard users' privacy;Implementation Detail;list of used privacy enhancing technologies;false;
+41;Data Portability;The IoT-Product / related service features portability functions to migrate from/to other products;Control Function;list of portability options;false;
+42;Backend Service Demands;The IoT-Product requires connection to a specific backend service;Implementation Detail;list of necessary backend services;false;
+43;Updateability;The IoT-Product features an update functionality and specifies the planned lifetime;Implementation Detail;end of lifetime date / lifetime duration;false;
+44;History of Data Leakage;Documented data leaks in connection with the IoT product;Transparency Information;list of documented data leaks associated with the service provider;false;
+45;Privacy Breaches;There are currently known data breaches associated with the IoT product.;Transparency Information;list of known data breaches associated with the service provider;false;
+46;Open Source;Which part of the IoT product is based on IoT software;Implementation Detail;list of open source software components used in the product;false;
+47;TLS Certificate Validation;The IoT-Product uses secure communication channels and validates server certificates;Implementation Detail;the product {does / does not} use secure communication channels;true;the product does use secure communication channels, the product does not use secure communication channels
+50;Duration and the Company/Entity of Data Being Stored;The IoT-Product should clearly specify the duration for which the data is stored and identify the company or entity responsible for storing it;Transparency Information;list of stored data type, storage duration and responsible entity;false;
+51;Purpose of Data Being Collected;The IoT-Product provides a detailed explanation of the reasons for collecting the data;Transparency Information;list of processing purposes;false;
+52;Frequency of Data Being Sent;The IoT-Product indicates how often the data is transmitted;Transparency Information;list of collected data type and transmission frequency;false;
+53;Data Processing Outside the EU;The IoT-Product indicates whether data is being transmitted outside the EU;Transparency Information;list of data being transmitted outside the EU;false;
+54;Location of Data Being Sent To;The IoT-Product indicates to which location (company & country) data is being transmitted;Transparency Information;list of data recipients with country;false;
+55;Controllable Discovery Function;The IoT product lets the user decide whether or not to automatically search for other devices on the network;Implementation Detail;the product {does / does not} allow users to control if the product should search for / connect with other devices in the network;true;the product does allow users to control if the product should search for / connect with other devices in the network, the product does not allow users to control if the product should search for / connect with other devices in the network
+56;On-device Data Processing;The data is preferably processed locally.;Implementation Detail;the product {does / does not} process data locally by default;true;the product does process data locally by default, the product does not process data locally by default
+57;Account Required for Device Bootstrapping;An account is required to set up the IoT device.;Implementation Detail;the product {does / does not} need an account to be used;true;the product does need an account to be used, the product does not need an account to be used
+59;Ensure Informed Consent to Changes in Data Processing; An interface enables users to compare current and new terms side-by-side with highlighted changes. This ensures informed consent.;Transparency Function;the product provides the functionality to compare current and new Privacy Policy;false;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
