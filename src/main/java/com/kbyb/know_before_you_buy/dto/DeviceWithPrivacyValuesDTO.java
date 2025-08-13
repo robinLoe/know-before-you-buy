@@ -1,11 +1,14 @@
 package com.kbyb.know_before_you_buy.dto;
 
-import lombok.Data;
 import java.util.List;
 
 import com.kbyb.know_before_you_buy.model.Device;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
+@NoArgsConstructor // Needed for JSON deserialization by Jackson
 public class DeviceWithPrivacyValuesDTO {
     private Integer deviceId;
     private String name;
