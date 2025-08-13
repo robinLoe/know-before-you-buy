@@ -2,6 +2,8 @@ package com.kbyb.know_before_you_buy.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +26,14 @@ import com.kbyb.know_before_you_buy.service.PrivacyPropertyService;
 @RestController
 @RequestMapping("/devices")
 public class DeviceController {
-    
+
     private final DeviceService deviceService;
     private final PrivacyPropertyService privacyPropertyService;
     private final DevicePrivacyValueService devicePrivacyValueService;
 
     public DeviceController(DeviceService deviceService,
-                            PrivacyPropertyService privacyPropertyService,
-                            DevicePrivacyValueService devicePrivacyValueService) {
+            PrivacyPropertyService privacyPropertyService,
+            DevicePrivacyValueService devicePrivacyValueService) {
         this.deviceService = deviceService;
         this.privacyPropertyService = privacyPropertyService;
         this.devicePrivacyValueService = devicePrivacyValueService;
@@ -70,35 +72,60 @@ public class DeviceController {
 
     @PostMapping("/with-privacy-values")
     @Transactional
-    public Device createDeviceWithValues(@RequestBody DeviceWithPrivacyValuesDTO dto) {
-        Device device = new Device();
-        device.setName(dto.getName());
-        device.setDeviceType(dto.getDeviceType());
-        device.setFunctionalClassification(dto.getFunctionalClassification());
-        device.setImageUrl(dto.getImageUrl());
-        device.setUrl(dto.getUrl());
+    public ResponseEntity<?> createDeviceWithValues(@RequestBody DeviceWithPrivacyValuesDTO dto) {
+        try {
+            Device device = new Device();
+            device.setName(dto.getName());
+            device.setDeviceType(dto.getDeviceType());
+            device.setFunctionalClassification(dto.getFunctionalClassification());
+            device.setImageUrl(dto.getImageUrl());
+            device.setUrl(dto.getUrl());
 
-        Device savedDevice = deviceService.save(device);
+            Device savedDevice = deviceService.save(device);
 
-        for (PrivacyValueDTO pv : dto.getPrivacyValues()) {
-            PrivacyProperty prop = null;
-            if (pv.getPropertyId() != null) {
-                prop = privacyPropertyService.findById(pv.getPropertyId())
-                        .orElseThrow(() -> new RuntimeException("PrivacyProperty id=" + pv.getPropertyId() + " not found"));
-            } else if (pv.getPropertyName() != null) {
-                prop = privacyPropertyService.findByName(pv.getPropertyName())
-                        .orElseThrow(() -> new RuntimeException("PrivacyProperty name=" + pv.getPropertyName() + " not found"));
-            } else {
-                throw new RuntimeException("privacyValue must include propertyId or propertyName");
+            for (PrivacyValueDTO pv : dto.getPrivacyValues()) {
+                PrivacyProperty prop = null;
+                if (pv.getPropertyId() != null) {
+                    prop = privacyPropertyService.findById(pv.getPropertyId())
+                            .orElseThrow(() -> new IllegalArgumentException("The PrivacyProperty with the id = " + pv.getPropertyId() + " was not found"));
+                } else if (pv.getPropertyName() != null) {
+                    prop = privacyPropertyService.findByName(pv.getPropertyName())
+                            .orElseThrow(() -> new IllegalArgumentException("The PrivacyProperty with the name = " + pv.getPropertyName() + " was not found"));
+                } else {
+                    throw new IllegalArgumentException("privacyValue must include propertyId or propertyName");
+                }
+
+                DevicePrivacyValue dpv = new DevicePrivacyValue();
+                dpv.setDevice(savedDevice);
+                dpv.setPrivacyProperty(prop);
+
+                // Validate and set value
+                if (prop.isValidatable()) {
+                    String[] allowed = prop.getAllowedValues().split(",");
+                    if (pv.getValue().trim().equalsIgnoreCase(allowed[0])) {
+                        dpv.setValue(allowed[0]);
+                    } else if (pv.getValue().trim().equalsIgnoreCase(allowed[1].trim())) {
+                        dpv.setValue(allowed[1]);
+                    } else {
+                        throw new IllegalArgumentException(
+                                "Invalid value for property: " + prop.getName()
+                                + ".\nHas to be one of these:\n" + prop.getAllowedValues()
+                                + "\nbut was\n" + pv.getValue()
+                        );
+                    }
+                }else{
+                    dpv.setValue(pv.getValue());
+                }
+
+                devicePrivacyValueService.save(dpv);
             }
 
-            DevicePrivacyValue dpv = new DevicePrivacyValue();
-            dpv.setDevice(savedDevice);
-            dpv.setPrivacyProperty(prop);
-            dpv.setValue(pv.getValue());
-            devicePrivacyValueService.save(dpv);
-        }
+            return ResponseEntity.ok(savedDevice);
 
-        return savedDevice;
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 }

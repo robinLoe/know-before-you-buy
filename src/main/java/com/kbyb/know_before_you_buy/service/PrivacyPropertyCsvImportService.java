@@ -38,6 +38,11 @@ public class PrivacyPropertyCsvImportService {
                 property.setDescription(fields[2].trim());           // Description
                 property.setCategory(fields[3].trim());              // Category
                 property.setMetric(fields[4].trim());                // Metric
+                boolean validatable = Boolean.parseBoolean(fields[5].trim());
+                property.setValidatable(validatable);
+                if(validatable){
+                    property.setAllowedValues(fields[6].trim());
+                }
 
                 repository.save(property);
             }

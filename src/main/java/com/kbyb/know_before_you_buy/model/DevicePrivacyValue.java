@@ -1,5 +1,6 @@
 package com.kbyb.know_before_you_buy.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,4 +26,9 @@ public class DevicePrivacyValue {
     private PrivacyProperty privacyProperty;
 
     private String value;
+
+    // The type is boolean and not Boolean, because this field cant be null. Default value is false
+    // So if someone mocks data, it must be marked as such but not if the data is real
+    @Column(columnDefinition = "boolean default false")
+    private boolean isMock;
 }
