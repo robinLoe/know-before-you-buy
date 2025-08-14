@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.kbyb.know_before_you_buy.dto.PrivacyValueDTO;
 import com.kbyb.know_before_you_buy.model.DevicePrivacyValue;
 import com.kbyb.know_before_you_buy.repository.DevicePrivacyValueRepository;
 
@@ -21,6 +22,10 @@ public class DevicePrivacyValueService {
         return repository.findAll();
     }
 
+    public List<PrivacyValueDTO> findPrivacyValuesByDeviceId(Integer deviceId) {
+        return repository.findPrivacyValuesByDeviceId(deviceId);
+    }
+
     public Optional<DevicePrivacyValue> findById(Integer id) {
         return repository.findById(id);
     }
@@ -31,5 +36,10 @@ public class DevicePrivacyValueService {
 
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    // Deletes all privacy value entries for a given device ID.
+    public void deletePrivacyValuesForDevice(Integer deviceId) {
+        repository.deleteByDeviceId(deviceId);
     }
 }

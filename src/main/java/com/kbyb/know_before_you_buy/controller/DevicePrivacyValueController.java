@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kbyb.know_before_you_buy.dto.PrivacyValueDTO;
 import com.kbyb.know_before_you_buy.model.DevicePrivacyValue;
 import com.kbyb.know_before_you_buy.service.DevicePrivacyValueService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/device-privacy-values")
@@ -27,6 +30,11 @@ public class DevicePrivacyValueController {
     @GetMapping
     public List<DevicePrivacyValue> getAll() {
         return service.findAll();
+    }
+
+    @GetMapping("/getAllFor/{deviceId}")
+    public List<PrivacyValueDTO> getAllPpForDeviceId(@PathVariable Integer deviceId) {
+        return service.findPrivacyValuesByDeviceId(deviceId);
     }
 
     @GetMapping("/{id}")

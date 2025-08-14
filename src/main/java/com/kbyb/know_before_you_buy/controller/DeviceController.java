@@ -58,6 +58,7 @@ public class DeviceController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
+        devicePrivacyValueService.deletePrivacyValuesForDevice(id);
         deviceService.deleteById(id);
     }
 
