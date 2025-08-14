@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kbyb.know_before_you_buy.dto.PrivacyValueDTO;
 import com.kbyb.know_before_you_buy.model.DevicePrivacyValue;
 import com.kbyb.know_before_you_buy.service.DevicePrivacyValueService;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController

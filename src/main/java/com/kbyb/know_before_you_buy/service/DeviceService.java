@@ -46,20 +46,10 @@ public class DeviceService {
                 .orElseThrow(() -> new RuntimeException("Device not found"));
 
         List<PrivacyValueDTO> privacyValues = devicePrivacyValueRepository
-                .findAllByDeviceName(name)
-                .stream()
-                .map(dpv -> new PrivacyValueDTO(
-                        dpv.getPrivacyProperty().getId(),
-                        dpv.getPrivacyProperty().getName(),
-                        dpv.getValue()
-                ))
-                .toList();
+                .findPrivacyValuesByDeviceName(name);
 
         return new DeviceWithPrivacyValuesDTO(device, privacyValues);
     }
-
-    
-
 
     @Transactional
     public Device createDeviceWithValues(DeviceWithPrivacyValuesDTO dto) {

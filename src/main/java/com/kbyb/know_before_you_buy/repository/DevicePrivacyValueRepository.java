@@ -38,6 +38,21 @@ public interface DevicePrivacyValueRepository extends JpaRepository<DevicePrivac
     """)
     List<PrivacyValueDTO> findPrivacyValuesByDeviceId(@Param("deviceId") Integer deviceId);
 
+    //Retrieves all privacy values for a given deviceName as lightweight DTOs.
+    @Query("""
+        SELECT new com.kbyb.know_before_you_buy.dto.PrivacyValueDTO(
+            pp.id,
+            pp.name,
+            dpv.value,
+            dpv.isMock
+        )
+        FROM DevicePrivacyValue dpv
+        JOIN dpv.privacyProperty pp
+        JOIN dpv.device d
+        WHERE d.name = :deviceName
+    """)
+    List<PrivacyValueDTO> findPrivacyValuesByDeviceName(@Param("deviceName") String deviceName);
+
     @Modifying // tells Spring Data this query modifies data instead of selecting it
     @Transactional // ensures the delete happens in a transaction, so either the whole transaction works or not at all
     @Query("DELETE FROM DevicePrivacyValue dpv WHERE dpv.device.id = :deviceId")

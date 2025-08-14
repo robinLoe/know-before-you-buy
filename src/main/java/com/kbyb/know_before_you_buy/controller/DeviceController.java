@@ -17,7 +17,6 @@ import com.kbyb.know_before_you_buy.dto.DeviceWithPrivacyValuesDTO;
 import com.kbyb.know_before_you_buy.model.Device;
 import com.kbyb.know_before_you_buy.service.DevicePrivacyValueService;
 import com.kbyb.know_before_you_buy.service.DeviceService;
-import com.kbyb.know_before_you_buy.service.PrivacyPropertyService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +26,6 @@ import lombok.RequiredArgsConstructor;
 public class DeviceController {
 
     private final DeviceService deviceService;
-    private final PrivacyPropertyService privacyPropertyService;
     private final DevicePrivacyValueService devicePrivacyValueService;
 
     @GetMapping
