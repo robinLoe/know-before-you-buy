@@ -1,5 +1,6 @@
 package com.kbyb.know_before_you_buy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,13 +29,31 @@ public class DeviceService {
     public List<Device> findAll() {
         return deviceRepository.findAll();
     }
+
+    public ArrayList<String> findAllNames(){
+        return deviceRepository.findAllNames();
+    }
+
+    public List<DeviceWithPrivacyValuesDTO> getAllDevicesWithPrivacyProperties(){
+        List<DeviceWithPrivacyValuesDTO> devicesWithPrivacyValuesDTOs = new ArrayList<>();
+        List<Device> allDevicesWithoutPP = deviceRepository.findAll();
+        for (Device deviceWithoutPP : allDevicesWithoutPP){
+            List<PrivacyValueDTO> privacyValues = devicePrivacyValueRepository.findPrivacyValuesByDeviceId(deviceWithoutPP.getId());
+            devicesWithPrivacyValuesDTOs.add(new DeviceWithPrivacyValuesDTO(deviceWithoutPP, privacyValues));
+        }
+        return devicesWithPrivacyValuesDTOs;
+    }
     
     public Optional<Device> findById(Integer id) {
         return deviceRepository.findById(id);
     }
 
     public Device save(Device device) {
+        if(findAllNames().contains(device.getName())){
+            throw new RuntimeException("Device with the name \"" + device.getName() + "\" already exists.");
+        }else{
         return deviceRepository.save(device);
+        }
     }
 
     public void deleteById(Integer id) {

@@ -1,5 +1,6 @@
 package com.kbyb.know_before_you_buy.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,9 @@ import com.kbyb.know_before_you_buy.service.DevicePrivacyValueService;
 import com.kbyb.know_before_you_buy.service.DeviceService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 @RestController
 @RequestMapping("/devices")
@@ -28,40 +32,14 @@ public class DeviceController {
     private final DeviceService deviceService;
     private final DevicePrivacyValueService devicePrivacyValueService;
 
-    @GetMapping
-    public List<Device> getAll() {
-        return deviceService.findAll();
-    }
-
-    @GetMapping("/id/{id}")
-    public Device getById(@PathVariable Integer id) {
-        return deviceService.findById(id).orElseThrow(() -> new RuntimeException("Device not found"));
-    }
-
-    @GetMapping("/{name}")
-    public DeviceWithPrivacyValuesDTO getDeviceWithProperties(@PathVariable String name) {
-        return deviceService.getDeviceWithPrivacyValues(name);
-    }
-
+    // Create
     @PostMapping
-    public Device create(@RequestBody Device device) {
+    public Device createDevice(@RequestBody Device device) {
         return deviceService.save(device);
-    }
-
-    @PutMapping("/{id}")
-    public Device update(@PathVariable Integer id, @RequestBody Device device) {
-        device.setId(id);
-        return deviceService.save(device);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        devicePrivacyValueService.deletePrivacyValuesForDevice(id);
-        deviceService.deleteById(id);
     }
 
     @PostMapping("/with-privacy-values")
-    public ResponseEntity<?> createDeviceWithValues(@RequestBody DeviceWithPrivacyValuesDTO dto) {
+    public ResponseEntity<?> createDeviceWithPrivacyPropertyValues(@RequestBody DeviceWithPrivacyValuesDTO dto) {
         try {
             Device savedDevice = deviceService.createDeviceWithValues(dto);
             return ResponseEntity.ok(savedDevice);
@@ -73,4 +51,53 @@ public class DeviceController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
+
+
+    // Read
+
+    @GetMapping
+    public List<Device> getAllDevices() {
+        return deviceService.findAll();
+    }
+
+    @GetMapping("/with-privacy-values")
+    public List<DeviceWithPrivacyValuesDTO> getAllDevicesWithPrivacyProperties() {
+        return deviceService.getAllDevicesWithPrivacyProperties();
+    }
+
+    @GetMapping("/findAllNames")
+    public ArrayList<String> findAllNames() {
+        return deviceService.findAllNames();
+    }
+    
+    
+
+    @GetMapping("/id/{id}")
+    public Device getDeviceById(@PathVariable Integer id) {
+        return deviceService.findById(id).orElseThrow(() -> new RuntimeException("Device not found"));
+    }
+
+    @GetMapping("/byName/{name}")
+    public DeviceWithPrivacyValuesDTO getDeviceWithPrivacyPropertiesByDeviceName(@PathVariable String name) {
+        return deviceService.getDeviceWithPrivacyValues(name);
+    }
+
+
+    // Update
+
+    @PutMapping("/{id}")
+    public Device update(@PathVariable Integer id, @RequestBody Device device) {
+        device.setId(id);
+        return deviceService.save(device);
+    }
+
+
+    // Delete
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        devicePrivacyValueService.deletePrivacyValuesForDevice(id);
+        deviceService.deleteById(id);
+    }
+
 }
