@@ -79,7 +79,27 @@ public class DevicePrivacyValueService {
     }
 
     // Deletes all privacy value entries for a given device ID.
-    public void deletePrivacyValuesForDevice(Integer deviceId) {
+    public void deletePrivacyValuesByDeviceId(Integer deviceId) {
         repository.deleteByDeviceId(deviceId);
+    }
+
+    // Deletes all privacy value entries for a given deviceName.
+    public void deletePrivacyValuesByDeviceName(String deviceName) {
+        repository.deleteByDeviceName(deviceName);
+    }
+
+    // Deletes all privacy value entries for a given privacyPropertyId.
+    public void deletePrivacyValuesByPrivacyPropertyId(Integer privacyPropertyId) {
+        repository.deleteByPrivacyPropertyId(privacyPropertyId);
+    }
+
+    // Deletes all privacy value entries for a given privacyPropertyName.
+    public void deletePrivacyValuesByPrivacyPropertyName(String privacyPropertyName) {
+        repository.deleteByPrivacyPropertyName(privacyPropertyName);
+    }
+
+    // Deletes privacy value entry for a given privacyPropertyName.
+    public void deleteByPrivacyPropertyIdAndDeviceId(Integer deviceId, Integer privacyPropertyId) {
+        repository.deleteByPrivacyPropertyIdAndDeviceId(deviceId, privacyPropertyId);
     }
 }

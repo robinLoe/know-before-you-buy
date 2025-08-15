@@ -121,7 +121,7 @@ public class DeviceController {
     @Operation(summary = "Delete a device (and all associated privacy values)")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        devicePrivacyValueService.deletePrivacyValuesForDevice(id);
+        devicePrivacyValueService.deletePrivacyValuesByDeviceId(id);
         deviceService.deleteById(id);
         return ResponseEntity.ok().build();
     }

@@ -64,4 +64,22 @@ public interface DevicePrivacyValueRepository extends JpaRepository<DevicePrivac
     @Transactional // ensures the delete happens in a transaction, so either the whole transaction works or not at all
     @Query("DELETE FROM DevicePrivacyValue dpv WHERE dpv.device.id = :deviceId")
     void deleteByDeviceId(@Param("deviceId") Integer deviceId);
+
+    @Modifying // tells Spring Data this query modifies data instead of selecting it
+    @Transactional // ensures the delete happens in a transaction, so either the whole transaction works or not at all
+    @Query("DELETE FROM DevicePrivacyValue dpv WHERE dpv.device.name = :deviceName")
+    void deleteByDeviceName(@Param("deviceName") String deviceName);
+
+    @Modifying // tells Spring Data this query modifies data instead of selecting it
+    @Transactional // ensures the delete happens in a transaction, so either the whole transaction works or not at all
+    @Query("DELETE FROM DevicePrivacyValue dpv WHERE dpv.privacyProperty.id = :privacyPropertyId")
+    void deleteByPrivacyPropertyId(@Param("privacyPropertyId") Integer privacyPropertyId);
+
+    @Modifying // tells Spring Data this query modifies data instead of selecting it
+    @Transactional // ensures the delete happens in a transaction, so either the whole transaction works or not at all
+    @Query("DELETE FROM DevicePrivacyValue dpv WHERE dpv.privacyProperty.name = :privacyPropertyName")
+    void deleteByPrivacyPropertyName(@Param("privacyPropertyName") String privacyPropertyName);
+
+    @Query("DELETE FROM DevicePrivacyValue dpv WHERE dpv.device.id = :deviceId AND dpv.privacyProperty.id = :propertyId")
+    void deleteByPrivacyPropertyIdAndDeviceId(@Param("deviceId") Integer deviceId, @Param("propertyId") Integer propertyId);
 }

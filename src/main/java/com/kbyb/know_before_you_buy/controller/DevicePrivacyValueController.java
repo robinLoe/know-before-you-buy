@@ -66,7 +66,6 @@ public class DevicePrivacyValueController {
         return ResponseEntity.ok(service.save(dpv));
     }
 
-    // TO TEST
     @Operation(summary = "Update DevicePrivacyValue by DeviceId and PrivacyPropertyId")
     @PutMapping("/byDeviceId/{deviceId}/byPropertyId/{propertyId}")
     public ResponseEntity<?> updateByDeviceIdAndPropertyId(
@@ -84,7 +83,6 @@ public class DevicePrivacyValueController {
         }
     }
 
-    //TO TEST
     @Operation(summary = "Update DevicePrivacyValue by DeviceName and PrivacyPropertyId")
     @PutMapping("/byDeviceName/{deviceName}/byPropertyId/{propertyId}")
     public ResponseEntity<?> updateByDeviceNameAndPropertyId(
@@ -111,25 +109,32 @@ public class DevicePrivacyValueController {
         return ResponseEntity.ok().build();
     }
 
-    /*
-    @Operation(summary = "Delete all DevicePrivacyValues for a Device by ID")
+    
+    @Operation(summary = "Delete all DevicePrivacyValues by DeviceID")
     @DeleteMapping("/byDeviceId/{deviceId}")
     public ResponseEntity<Void> deleteByDeviceId(@PathVariable Integer deviceId) {
-        service.deleteByDeviceId(deviceId);
+        service.deletePrivacyValuesByDeviceId(deviceId);
         return ResponseEntity.ok().build();
     }
 
-    @Operation(summary = "Delete all DevicePrivacyValues for a Device by Name")
+    @Operation(summary = "Delete all DevicePrivacyValues by DeviceName")
     @DeleteMapping("/byDeviceName/{deviceName}")
     public ResponseEntity<Void> deleteByDeviceName(@PathVariable String deviceName) {
-        service.deleteByDeviceName(deviceName);
+        service.deletePrivacyValuesByDeviceName(deviceName);
         return ResponseEntity.ok().build();
     }
 
-    @Operation(summary = "Delete all DevicePrivacyValues for a PrivacyProperty by ID")
+    @Operation(summary = "Delete all DevicePrivacyValues by PrivacyPropertyID")
     @DeleteMapping("/byPrivacyPropertyId/{propertyId}")
     public ResponseEntity<Void> deleteByPrivacyPropertyId(@PathVariable Integer propertyId) {
-        service.deleteByPrivacyPropertyId(propertyId);
+        service.deletePrivacyValuesByPrivacyPropertyId(propertyId);
+        return ResponseEntity.ok().build();
+    }
+
+    @Operation(summary = "Delete all DevicePrivacyValues by PrivacyPropertyName")
+    @DeleteMapping("/byPrivacyPropertyName/{propertyName}")
+    public ResponseEntity<Void> deleteByPrivacyPropertyName(@PathVariable String propertyName) {
+        service.deletePrivacyValuesByPrivacyPropertyName(propertyName);
         return ResponseEntity.ok().build();
     }
 
@@ -138,7 +143,7 @@ public class DevicePrivacyValueController {
     public ResponseEntity<Void> deleteByDeviceIdAndPropertyId(
             @PathVariable Integer deviceId,
             @PathVariable Integer propertyId) {
-        service.deleteByDeviceIdAndPropertyId(deviceId, propertyId);
+        service.deleteByPrivacyPropertyIdAndDeviceId(deviceId, propertyId);
         return ResponseEntity.ok().build();
-    } */
+    } 
 }
