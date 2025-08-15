@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.kbyb.know_before_you_buy.dto.PrivacyValueDTO;
 import com.kbyb.know_before_you_buy.model.DevicePrivacyValue;
+import com.kbyb.know_before_you_buy.model.PrivacyProperty;
 import com.kbyb.know_before_you_buy.repository.DevicePrivacyValueRepository;
 
 @Service
@@ -26,12 +27,51 @@ public class DevicePrivacyValueService {
         return repository.findPrivacyValuesByDeviceId(deviceId);
     }
 
+    public List<PrivacyValueDTO> findPrivacyValuesByDeviceName(String deviceName) {
+        return repository.findPrivacyValuesByDeviceName(deviceName);
+    }
+
     public Optional<DevicePrivacyValue> findById(Integer id) {
         return repository.findById(id);
     }
 
     public DevicePrivacyValue save(DevicePrivacyValue dpv) {
         return repository.save(dpv);
+    }
+
+    //TO TEST
+    public DevicePrivacyValue getDpvByDeviceIdAndPropertyId(Integer deviceId, Integer propertyId){
+        return repository.getDpvByDeviceIdAndPropertyId(deviceId, propertyId).orElseThrow(() -> new RuntimeException("DevicePrivacyValue not found"));
+    }
+
+    //TO TEST
+    public DevicePrivacyValue getDpvByDeviceNameAndPropertyId(String deviceName, Integer propertyId){
+        return repository.getDpvByDeviceNameAndPropertyId(deviceName, propertyId).orElseThrow(() -> new RuntimeException("DevicePrivacyValue not found"));
+    }
+
+    public DevicePrivacyValue validateAndUpdateDpvValue(String value, DevicePrivacyValue dpv){
+        PrivacyProperty prop = dpv.getPrivacyProperty();
+        // Validation for allowed values
+        if (prop.isValidatable()) {
+            String[] allowed = prop.getAllowedValues().split(",");
+            String trimmedValue = value.trim();
+
+            if (trimmedValue.equalsIgnoreCase(allowed[0].trim())) {
+                dpv.setValue(allowed[0].trim());
+            } else if (allowed.length > 1 && trimmedValue.equalsIgnoreCase(allowed[1].trim())) {
+                dpv.setValue(allowed[1].trim());
+            } else {
+                throw new IllegalArgumentException(
+                    "Invalid value for property: " + prop.getName()
+                    + ".Has to be one of these: " + prop.getAllowedValues()
+                    + " but was: " + value
+                );
+            }
+        } else {
+            // No validation needed
+            dpv.setValue(value);
+        }
+        return dpv;
     }
 
     public void deleteById(Integer id) {

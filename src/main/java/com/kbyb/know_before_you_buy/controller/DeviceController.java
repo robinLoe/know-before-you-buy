@@ -1,7 +1,7 @@
 package com.kbyb.know_before_you_buy.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +19,10 @@ import com.kbyb.know_before_you_buy.model.Device;
 import com.kbyb.know_before_you_buy.service.DevicePrivacyValueService;
 import com.kbyb.know_before_you_buy.service.DeviceService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 
 @RestController
@@ -32,72 +33,96 @@ public class DeviceController {
     private final DeviceService deviceService;
     private final DevicePrivacyValueService devicePrivacyValueService;
 
-    // Create
-    @PostMapping
-    public Device createDevice(@RequestBody Device device) {
-        return deviceService.save(device);
-    }
+    // Create ----------------------------------------------------------
 
+    //TESTED
+    @Operation(summary = "Create a new Device (without privacy values)")
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Device created"),
+        @ApiResponse(responseCode = "409", description = "Device with that name already exists")
+    })
+    @PostMapping
+    public ResponseEntity<?> createDevice(@RequestBody Device device) {
+        try {
+            Device saved = deviceService.save(device);
+            return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+        } catch (RuntimeException e) {
+            // Example: device name already exists
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(Map.of("error", e.getMessage()));
+        }
+    }
+    
+
+    //TESTED
+    @Operation(summary = "Create a new Device including its Privacy Values")
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Device with Privacy Properties created"),
+        @ApiResponse(responseCode = "400", description = "Validation error")
+    })
     @PostMapping("/with-privacy-values")
     public ResponseEntity<?> createDeviceWithPrivacyPropertyValues(@RequestBody DeviceWithPrivacyValuesDTO dto) {
         try {
             Device savedDevice = deviceService.createDeviceWithValues(dto);
-            return ResponseEntity.ok(savedDevice);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedDevice);
         } catch (IllegalArgumentException e) {
-            // Business validation error (e.g. invalid property ID or value)
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         } catch (RuntimeException e) {
-            // Unexpected runtime error
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("error", e.getMessage()));
         }
     }
 
+    // Read ------------------------------------------------------------
 
-    // Read
-
+    @Operation(summary = "Get all devices")
     @GetMapping
-    public List<Device> getAllDevices() {
-        return deviceService.findAll();
+    public ResponseEntity<List<Device>> getAllDevices() {
+        return ResponseEntity.ok(deviceService.findAll());
     }
 
+    @Operation(summary = "Get all devices including their privacy values")
     @GetMapping("/with-privacy-values")
-    public List<DeviceWithPrivacyValuesDTO> getAllDevicesWithPrivacyProperties() {
-        return deviceService.getAllDevicesWithPrivacyProperties();
+    public ResponseEntity<List<DeviceWithPrivacyValuesDTO>> getAllDevicesWithPrivacyProperties() {
+        return ResponseEntity.ok(deviceService.getAllDevicesWithPrivacyProperties());
     }
 
+    @Operation(summary = "Get all device names")
     @GetMapping("/findAllNames")
-    public ArrayList<String> findAllNames() {
-        return deviceService.findAllNames();
+    public ResponseEntity<List<String>> findAllNames() {
+        return ResponseEntity.ok(deviceService.findAllNames());
     }
-    
-    
 
+    @Operation(summary = "Get a device by its ID")
     @GetMapping("/id/{id}")
-    public Device getDeviceById(@PathVariable Integer id) {
-        return deviceService.findById(id).orElseThrow(() -> new RuntimeException("Device not found"));
+    public ResponseEntity<Device> getDeviceById(@PathVariable Integer id) {
+        return ResponseEntity.ok(
+            deviceService.findById(id)
+                .orElseThrow(() -> new RuntimeException("Device not found"))
+        );
     }
 
+    @Operation(summary = "Get a device including privacy values by its name")
     @GetMapping("/byName/{name}")
-    public DeviceWithPrivacyValuesDTO getDeviceWithPrivacyPropertiesByDeviceName(@PathVariable String name) {
-        return deviceService.getDeviceWithPrivacyValues(name);
+    public ResponseEntity<DeviceWithPrivacyValuesDTO> getDeviceWithPrivacyPropertiesByDeviceName(@PathVariable String name) {
+        return ResponseEntity.ok(deviceService.getDeviceWithPrivacyValues(name));
     }
 
+    // Update -----------------------------------------------------------
 
-    // Update
-
+    @Operation(summary = "Update a device")
     @PutMapping("/{id}")
-    public Device update(@PathVariable Integer id, @RequestBody Device device) {
+    public ResponseEntity<Device> update(@PathVariable Integer id, @RequestBody Device device) {
         device.setId(id);
-        return deviceService.save(device);
+        return ResponseEntity.ok(deviceService.save(device));
     }
 
+    // Delete -----------------------------------------------------------
 
-    // Delete
-
+    @Operation(summary = "Delete a device (and all associated privacy values)")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
         devicePrivacyValueService.deletePrivacyValuesForDevice(id);
         deviceService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
-
 }

@@ -1,6 +1,7 @@
 package com.kbyb.know_before_you_buy.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -52,6 +53,12 @@ public interface DevicePrivacyValueRepository extends JpaRepository<DevicePrivac
         WHERE d.name = :deviceName
     """)
     List<PrivacyValueDTO> findPrivacyValuesByDeviceName(@Param("deviceName") String deviceName);
+
+    @Query("SELECT dpv FROM DevicePrivacyValue dpv WHERE dpv.device.id = :deviceId AND dpv.privacyProperty.id = :propertyId")
+    Optional<DevicePrivacyValue> getDpvByDeviceIdAndPropertyId(@Param("deviceId") Integer deviceId, @Param("propertyId") Integer propertyId);
+
+    @Query("SELECT dpv FROM DevicePrivacyValue dpv WHERE dpv.device.name = :deviceName AND dpv.privacyProperty.id = :propertyId")
+    Optional<DevicePrivacyValue> getDpvByDeviceNameAndPropertyId(@Param("deviceName") String deviceName, @Param("propertyId") Integer propertyId);
 
     @Modifying // tells Spring Data this query modifies data instead of selecting it
     @Transactional // ensures the delete happens in a transaction, so either the whole transaction works or not at all

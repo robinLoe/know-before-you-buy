@@ -50,7 +50,7 @@ public class DeviceService {
 
     public Device save(Device device) {
         if(findAllNames().contains(device.getName())){
-            throw new RuntimeException("Device with the name \"" + device.getName() + "\" already exists.");
+            throw new RuntimeException("Device with the name " + device.getName() + " already exists.");
         }else{
         return deviceRepository.save(device);
         }
@@ -74,7 +74,7 @@ public class DeviceService {
     public Device createDeviceWithValues(DeviceWithPrivacyValuesDTO dto) {
         // Creates the base Device object from DTO
         Device device = buildDevice(dto);
-        Device savedDevice = deviceRepository.save(device);
+        Device savedDevice = save(device);
 
         // Loop through all provided privacy values and validate + save them
         for (PrivacyValueDTO pv : dto.getPrivacyValues()) {
