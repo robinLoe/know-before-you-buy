@@ -105,16 +105,10 @@ public class DeviceService {
      */
     private PrivacyProperty findPrivacyProperty(PrivacyValueDTO pv) {
         if (pv.getPropertyId() != null) {
-            return privacyPropertyService.findById(pv.getPropertyId())
-                .orElseThrow(() -> new IllegalArgumentException(
-                    "The PrivacyProperty with the id = " + pv.getPropertyId() + " was not found"
-                ));
+            return privacyPropertyService.findById(pv.getPropertyId());
         }
         if (pv.getPropertyName() != null) {
-            return privacyPropertyService.findByName(pv.getPropertyName())
-                .orElseThrow(() -> new IllegalArgumentException(
-                    "The PrivacyProperty with the name = " + pv.getPropertyName() + " was not found"
-                ));
+            return privacyPropertyService.findByName(pv.getPropertyName());
         }
         throw new IllegalArgumentException("privacyValue must include propertyId or propertyName");
     }

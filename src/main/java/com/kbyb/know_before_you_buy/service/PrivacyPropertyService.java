@@ -20,12 +20,12 @@ public class PrivacyPropertyService {
         return repository.findAll();
     }
 
-    public Optional<PrivacyProperty> findById(Integer id) {
-        return repository.findById(id);
+    public PrivacyProperty findById(Integer id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("PrivacyProperty with the ID: " + id + " was not found"));
     }
 
-    public Optional<PrivacyProperty> findByName(String name) {
-        return repository.findByName(name);
+    public PrivacyProperty findByName(String name) {
+        return repository.findByName(name).orElseThrow(() -> new RuntimeException("PrivacyProperty with the name: " + name + " was not found"));
     } 
 
     public PrivacyProperty save(PrivacyProperty pp) {
@@ -33,6 +33,11 @@ public class PrivacyPropertyService {
     }
 
     public void deleteById(Integer id) {
+        repository.deleteById(id);
+    }
+
+    public void deleteByName(String name) {
+        Integer id = findByName(name).getId();
         repository.deleteById(id);
     }
 }
