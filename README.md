@@ -21,9 +21,9 @@ This document serves as a comprehensive guide to the `know-before-you-buy` backe
 
 The core purpose of this project is to provide a robust backend for a service that helps users make informed purchasing decisions. It uses a three-part data model:
 
-- **`Device`**: Represents a product (e.g., "Smart TV", "Smart Speaker").  
-- **`PrivacyProperty`**: Represents a specific privacy-related attribute (e.g., "Data Encryption", "Microphone Use").  
-- **`DevicePrivacyValue`**: A join entity that connects a `Device` to a `PrivacyProperty` and stores the specific value for that property (e.g., a "Smart TV" having a "Data Encryption" value of "AES-256").  
+- **`Device`**: Represents a product.
+- **`PrivacyProperty`**: Represents a specific privacy-related attribute.
+- **`DevicePrivacyValue`**: A join entity that connects a `Device` to a `PrivacyProperty` and stores the specific value for that property.
 
 The application is built as a RESTful API using the Spring Boot framework, allowing a frontend application to perform full CRUD operations on this data.
 
@@ -103,7 +103,7 @@ All write-related endpoints (`POST`, `PUT`, `DELETE`) are protected by a single 
 
 #### Implementation Details
 
-The security mechanism is implemented via a custom servlet filter, `ApiKeyFilter.java`, configured in `WebConfig.java`.
+The security mechanism is implemented via a custom servlet filter, `ApiKeyFilter.java`, configured in the `security` folder.
 
 1. **Request Interception**: `ApiKeyFilter` checks for a custom HTTP header named `X-API-KEY`.  
 2. **Key Validation**: Compares the header value against a secret key from the application's configuration.  
@@ -140,14 +140,21 @@ All API requests are logged for traceability using `RequestLoggingFilter.java`, 
 
 ### 7. Reproducibility
 
-Steps to replicate the project's environment:
+This section outlines all the components and steps required to replicate the project's environment and functionality.
 
-- **Source Code**: Located in `src/main/java/com/kbyb/know_before_you-buy`.  
-- **Database Schema**: Automatically created via Spring Data JPA based on entities.  
-- **Data Import**: `PrivacyPropertiesCSV.csv` is loaded at startup via `DataLoaderConfig.java`.  
-- **Configuration**: Managed in `src/main/resources/application.properties`.  
-- **CSV Data Ingestion**: Use `AllDevicesCSV.csv` with the endpoint `/devices/csv` in Postman (`form-data` key `file`).  
-- **Build Tool**: Maven (`pom.xml` contains all dependencies and plugins).
+* **Source Code**: The complete source code is available in this repository. The main application logic is contained within the `src/main/java/com/kbyb/know_before_you-buy` directory.
+
+* **Git Repository**: The project's development history and code are managed using Git. You can access the repository at https://github.com/robinLoe/know-before-you-buy/commits/Try-without-cascade/ to clone the project and view the complete commit history.
+
+* **Database Schema**: The application uses Spring Data JPA to automatically create the database schema on startup. No separate SQL schema file is required. The entities (`Device.java`, `PrivacyProperty.java`, `DevicePrivacyValue.java`) define the table structure.
+
+* **Data Import**: A CSV file named `PrivacyPropertiesCSV.csv` is included in `src/main/resources/`. The `DataLoaderConfig.java` class is configured to automatically load this data into the database on application startup if the database is empty.
+
+* **Configuration**: All configuration, including database credentials and the API key, is managed in `src/main/resources/application.properties`.
+
+* **Ingestion of Analyzed Data via Bulk Import**: A CSV file named `AllDevicesCSV.csv` is included in `src/main/resources/`. You can use Postman with the endpoint `https://localhost:8443/devices/csv` and under the tab “Body” you select “form-data,” enter “file” as Key and upload the CSV file as the corresponding Value (make sure the type is set to “File”). Then the data is ingested into the database.
+
+* **Build Tool**: The project uses Maven, with the `pom.xml` file detailing all required dependencies and build plugins for a reproducible build process.
 
 ---
 
@@ -174,7 +181,7 @@ To test the API with Postman:
    ```
 
    **To import it into Postman:**  
-   - Open Postman → Click **Import** → Select **File** → Choose the `KBYB-API.postman_collection.json` file.  
+   - Open Postman → Click **Import** → Select **File** → Choose the `KnowBeforeYouBuy.postman_collection.json` file.  
    - After import, select the previously created environment (`{{baseUrl}}`) to ensure all requests point to your local API instance.  
 
 For write operations (`POST`, `PUT`, `DELETE`), make sure to include the `X-API-KEY` header in your requests.
