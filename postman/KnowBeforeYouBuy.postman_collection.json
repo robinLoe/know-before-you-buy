@@ -1,0 +1,749 @@
+{
+	"info": {
+		"_postman_id": "2ec21558-0f51-49c5-8c4f-7181a67e03bb",
+		"name": "KnowBeforeYouBuy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41549907"
+	},
+	"item": [
+		{
+			"name": "DeviceController",
+			"item": [
+				{
+					"name": "Create TestDevice with PPs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test Two\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"https://example.com/device-info\",\r\n  \"privacyValues\": [\r\n    {\r\n      \"propertyName\": \"Compliance with Cyber Resilience Act\",\r\n      \"value\": \"is compliant with CRA\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Compliance Support\",\r\n      \"value\": \"the product does help the owner perform his obligations towards third parties\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Separate Data Protection Information from Terms & Conditions\",\r\n      \"value\": \"data protection information is separated from terms and conditions\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Secure Default Settings\",\r\n      \"value\": \"automatic encryption enabled, two-factor authentication on\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Resetting to Secure Default Settings\",\r\n      \"value\": \"products can be reset to private default settings\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Minimization\",\r\n      \"value\": \"name, email, device ID\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Legal Grounds\",\r\n      \"value\": \"user consent, contract necessity\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Control of Sent Data\",\r\n      \"value\": \"location sharing, usage statistics\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Control of Data Recipient\",\r\n      \"value\": \"cloud provider, analytics partner\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Special Categories of Data\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Actors Involved in the Processing\",\r\n      \"value\": \"manufacturer (controller), hosting provider (processor)\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Availability of Contracts for Joint Controllers/Processors\",\r\n      \"value\": \"standard DPA available\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Clear and Transparent Personal Data Processing Information\",\r\n      \"value\": \"https://example.com/privacy-policy\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Recipient of Information\",\r\n      \"value\": \"data analytics partner, cloud storage provider\"\r\n    },\r\n    {\r\n      \"propertyName\": \"App Permissions Required\",\r\n      \"value\": \"camera, microphone, location\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Clarification of Data Processing Process\",\r\n      \"value\": \"users are informed about the processing of data\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Sharing\",\r\n      \"value\": \"location data with navigation partner\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Encryption Status for User Passwords\",\r\n      \"value\": \"User passwords are stored encrypted\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Optional Security Review\",\r\n      \"value\": \"ISO 27001 audit by SecurityCo\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Authentication Information\",\r\n      \"value\": \"password, fingerprint, OTP\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Intuitive Privacy Control Interface\",\r\n      \"value\": \"https://example.com/privacy-ui-screenshot.jpg\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Visual Representation of Privacy Flow\",\r\n      \"value\": \"https://example.com/privacy-flow-diagram.jpg\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Controlled Data Processing Location\",\r\n      \"value\": \"EU servers, US servers\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Contextual Data Disclosure\",\r\n      \"value\": \"the product does provide contextualized information when asking for user decisions\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Additional Transparency Mechanisms\",\r\n      \"value\": \"real-time activity log, data export\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Different Granularity of Privacy Settings of UI\",\r\n      \"value\": \"basic, intermediate, advanced\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Profiling\",\r\n      \"value\": \"recommendations based on usage patterns\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Subject Rights\",\r\n      \"value\": \"download data, delete account, restrict processing\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Listing Non-Personally Identifiable Information\",\r\n      \"value\": \"device model, firmware version\"\r\n    },\r\n    {\r\n      \"propertyName\": \"(Security) Update Status Display\",\r\n      \"value\": \"last update 2025-08-01\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Exploration Functionality\",\r\n      \"value\": \"browse connected devices, review historical logs\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Investigation Functionality\",\r\n      \"value\": \"event log export, search filters\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Being Notified When Something Needs Attention\",\r\n      \"value\": \"firmware update available, suspicious login detected\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Control\",\r\n      \"value\": \"the product can manage multiple authorized users\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Interaction and Engagement\",\r\n      \"value\": \"touchscreen, voice commands, mobile app\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Privacy Enhancing Technologies\",\r\n      \"value\": \"end-to-end encryption, local processing\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Portability\",\r\n      \"value\": \"export to CSV, JSON\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Backend Service Demands\",\r\n      \"value\": \"authentication server, analytics server\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Updateability\",\r\n      \"value\": \"support until 2030\"\r\n    },\r\n    {\r\n      \"propertyName\": \"History of Data Leakage\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Privacy Breaches\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Open Source\",\r\n      \"value\": \"OpenSSL, SQLite\"\r\n    },\r\n    {\r\n      \"propertyName\": \"TLS Certificate Validation\",\r\n      \"value\": \"the product does use secure communication channels\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Duration and the Company/Entity of Data Being Stored\",\r\n      \"value\": \"usage logs - 30 days - ExampleCorp\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Purpose of Data Being Collected\",\r\n      \"value\": \"service improvement, diagnostics\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Frequency of Data Being Sent\",\r\n      \"value\": \"heartbeat every 10 minutes\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Processing Outside the EU\",\r\n      \"value\": \"anonymized logs sent to US servers\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Location of Data Being Sent To\",\r\n      \"value\": \"Germany, USA\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Controllable Discovery Function\",\r\n      \"value\": \"the product does allow users to control if the product should search for / connect with other devices in the network\"\r\n    },\r\n    {\r\n      \"propertyName\": \"On-device Data Processing\",\r\n      \"value\": \"the product does process data locally by default\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Account Required for Device Bootstrapping\",\r\n      \"value\": \"the product does need an account to be used\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Ensure Informed Consent to Changes in Data Processing\",\r\n      \"value\": \"the product provides the functionality to compare current and new Privacy Policy\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices/with-privacy-values",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"with-privacy-values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TestDevice with non-existing property",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"TEST DEVICE Smart Home Hub X100\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"https://example.com/device-info\",\r\n  \"privacyValues\": [\r\n    {\r\n      \"propertyName\": \"Fake Property\",\r\n      \"value\": \"this is a fake property for testing\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Compliance Support\",\r\n      \"value\": \"the product does help the owner perform his obligations towards third parties\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Separate Data Protection Information from Terms & Conditions\",\r\n      \"value\": \"data protection information is separated from terms and conditions\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Secure Default Settings\",\r\n      \"value\": \"automatic encryption enabled, two-factor authentication on\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Resetting to Secure Default Settings\",\r\n      \"value\": \"products can be reset to private default settings\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Minimization\",\r\n      \"value\": \"name, email, device ID\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Legal Grounds\",\r\n      \"value\": \"user consent, contract necessity\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Control of Sent Data\",\r\n      \"value\": \"location sharing, usage statistics\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Control of Data Recipient\",\r\n      \"value\": \"cloud provider, analytics partner\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Special Categories of Data\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Actors Involved in the Processing\",\r\n      \"value\": \"manufacturer (controller), hosting provider (processor)\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Availability of Contracts for Joint Controllers/Processors\",\r\n      \"value\": \"standard DPA available\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Clear and Transparent Personal Data Processing Information\",\r\n      \"value\": \"https://example.com/privacy-policy\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Recipient of Information\",\r\n      \"value\": \"data analytics partner, cloud storage provider\"\r\n    },\r\n    {\r\n      \"propertyName\": \"App Permissions Required\",\r\n      \"value\": \"camera, microphone, location\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Clarification of Data Processing Process\",\r\n      \"value\": \"users are informed about the processing of data\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Sharing\",\r\n      \"value\": \"location data with navigation partner\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Encryption Status for User Passwords\",\r\n      \"value\": \"User passwords are stored encrypted\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Optional Security Review\",\r\n      \"value\": \"ISO 27001 audit by SecurityCo\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Authentication Information\",\r\n      \"value\": \"password, fingerprint, OTP\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Intuitive Privacy Control Interface\",\r\n      \"value\": \"https://example.com/privacy-ui-screenshot.jpg\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Visual Representation of Privacy Flow\",\r\n      \"value\": \"https://example.com/privacy-flow-diagram.jpg\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Controlled Data Processing Location\",\r\n      \"value\": \"EU servers, US servers\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Contextual Data Disclosure\",\r\n      \"value\": \"the product does provide contextualized information when asking for user decisions\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Additional Transparency Mechanisms\",\r\n      \"value\": \"real-time activity log, data export\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Different Granularity of Privacy Settings of UI\",\r\n      \"value\": \"basic, intermediate, advanced\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Profiling\",\r\n      \"value\": \"recommendations based on usage patterns\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Subject Rights\",\r\n      \"value\": \"download data, delete account, restrict processing\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Listing Non-Personally Identifiable Information\",\r\n      \"value\": \"device model, firmware version\"\r\n    },\r\n    {\r\n      \"propertyName\": \"(Security) Update Status Display\",\r\n      \"value\": \"last update 2025-08-01\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Exploration Functionality\",\r\n      \"value\": \"browse connected devices, review historical logs\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Investigation Functionality\",\r\n      \"value\": \"event log export, search filters\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Being Notified When Something Needs Attention\",\r\n      \"value\": \"firmware update available, suspicious login detected\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Control\",\r\n      \"value\": \"the product can manage multiple authorized users\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Interaction and Engagement\",\r\n      \"value\": \"touchscreen, voice commands, mobile app\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Privacy Enhancing Technologies\",\r\n      \"value\": \"end-to-end encryption, local processing\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Portability\",\r\n      \"value\": \"export to CSV, JSON\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Backend Service Demands\",\r\n      \"value\": \"authentication server, analytics server\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Updateability\",\r\n      \"value\": \"support until 2030\"\r\n    },\r\n    {\r\n      \"propertyName\": \"History of Data Leakage\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Privacy Breaches\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Open Source\",\r\n      \"value\": \"OpenSSL, SQLite\"\r\n    },\r\n    {\r\n      \"propertyName\": \"TLS Certificate Validation\",\r\n      \"value\": \"the product does use secure communication channels\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Duration and the Company/Entity of Data Being Stored\",\r\n      \"value\": \"usage logs - 30 days - ExampleCorp\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Purpose of Data Being Collected\",\r\n      \"value\": \"service improvement, diagnostics\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Frequency of Data Being Sent\",\r\n      \"value\": \"heartbeat every 10 minutes\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Processing Outside the EU\",\r\n      \"value\": \"anonymized logs sent to US servers\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Location of Data Being Sent To\",\r\n      \"value\": \"Germany, USA\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Controllable Discovery Function\",\r\n      \"value\": \"the product does allow users to control if the product should search for / connect with other devices in the network\"\r\n    },\r\n    {\r\n      \"propertyName\": \"On-device Data Processing\",\r\n      \"value\": \"the product does process data locally by default\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Account Required for Device Bootstrapping\",\r\n      \"value\": \"the product does need an account to be used\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Ensure Informed Consent to Changes in Data Processing\",\r\n      \"value\": \"the product provides the functionality to compare current and new Privacy Policy\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices/with-privacy-values",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"with-privacy-values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TestDevice with Invalid value for Compliance with Cyber Resilience Act",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"TEST DEVICE Smart Home Hub X100 should not be here\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"https://example.com/device-info\",\r\n  \"privacyValues\": [\r\n    {\r\n      \"propertyName\": \"Compliance with Cyber Resilience Act\",\r\n      \"value\": \"compliant with CRA\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Compliance Support\",\r\n      \"value\": \"the product does help the owner perform his obligations towards third parties\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Separate Data Protection Information from Terms & Conditions\",\r\n      \"value\": \"data protection information is separated from terms and conditions\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Secure Default Settings\",\r\n      \"value\": \"automatic encryption enabled, two-factor authentication on\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Resetting to Secure Default Settings\",\r\n      \"value\": \"products can be reset to private default settings\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Minimization\",\r\n      \"value\": \"name, email, device ID\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Legal Grounds\",\r\n      \"value\": \"user consent, contract necessity\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Control of Sent Data\",\r\n      \"value\": \"location sharing, usage statistics\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Control of Data Recipient\",\r\n      \"value\": \"cloud provider, analytics partner\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Special Categories of Data\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Actors Involved in the Processing\",\r\n      \"value\": \"manufacturer (controller), hosting provider (processor)\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Availability of Contracts for Joint Controllers/Processors\",\r\n      \"value\": \"standard DPA available\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Clear and Transparent Personal Data Processing Information\",\r\n      \"value\": \"https://example.com/privacy-policy\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Recipient of Information\",\r\n      \"value\": \"data analytics partner, cloud storage provider\"\r\n    },\r\n    {\r\n      \"propertyName\": \"App Permissions Required\",\r\n      \"value\": \"camera, microphone, location\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Clarification of Data Processing Process\",\r\n      \"value\": \"users are informed about the processing of data\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Sharing\",\r\n      \"value\": \"location data with navigation partner\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Encryption Status for User Passwords\",\r\n      \"value\": \"User passwords are stored encrypted\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Optional Security Review\",\r\n      \"value\": \"ISO 27001 audit by SecurityCo\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Authentication Information\",\r\n      \"value\": \"password, fingerprint, OTP\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Intuitive Privacy Control Interface\",\r\n      \"value\": \"https://example.com/privacy-ui-screenshot.jpg\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Visual Representation of Privacy Flow\",\r\n      \"value\": \"https://example.com/privacy-flow-diagram.jpg\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Controlled Data Processing Location\",\r\n      \"value\": \"EU servers, US servers\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Contextual Data Disclosure\",\r\n      \"value\": \"the product does provide contextualized information when asking for user decisions\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Additional Transparency Mechanisms\",\r\n      \"value\": \"real-time activity log, data export\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Different Granularity of Privacy Settings of UI\",\r\n      \"value\": \"basic, intermediate, advanced\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Profiling\",\r\n      \"value\": \"recommendations based on usage patterns\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Subject Rights\",\r\n      \"value\": \"download data, delete account, restrict processing\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Listing Non-Personally Identifiable Information\",\r\n      \"value\": \"device model, firmware version\"\r\n    },\r\n    {\r\n      \"propertyName\": \"(Security) Update Status Display\",\r\n      \"value\": \"last update 2025-08-01\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Exploration Functionality\",\r\n      \"value\": \"browse connected devices, review historical logs\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Investigation Functionality\",\r\n      \"value\": \"event log export, search filters\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Being Notified When Something Needs Attention\",\r\n      \"value\": \"firmware update available, suspicious login detected\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Control\",\r\n      \"value\": \"the product can manage multiple authorized users\"\r\n    },\r\n    {\r\n      \"propertyName\": \"User Interaction and Engagement\",\r\n      \"value\": \"touchscreen, voice commands, mobile app\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Privacy Enhancing Technologies\",\r\n      \"value\": \"end-to-end encryption, local processing\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Portability\",\r\n      \"value\": \"export to CSV, JSON\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Backend Service Demands\",\r\n      \"value\": \"authentication server, analytics server\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Updateability\",\r\n      \"value\": \"support until 2030\"\r\n    },\r\n    {\r\n      \"propertyName\": \"History of Data Leakage\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Privacy Breaches\",\r\n      \"value\": \"none\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Open Source\",\r\n      \"value\": \"OpenSSL, SQLite\"\r\n    },\r\n    {\r\n      \"propertyName\": \"TLS Certificate Validation\",\r\n      \"value\": \"the product does use secure communication channels\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Duration and the Company/Entity of Data Being Stored\",\r\n      \"value\": \"usage logs - 30 days - ExampleCorp\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Purpose of Data Being Collected\",\r\n      \"value\": \"service improvement, diagnostics\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Frequency of Data Being Sent\",\r\n      \"value\": \"heartbeat every 10 minutes\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Data Processing Outside the EU\",\r\n      \"value\": \"anonymized logs sent to US servers\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Location of Data Being Sent To\",\r\n      \"value\": \"Germany, USA\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Controllable Discovery Function\",\r\n      \"value\": \"the product does allow users to control if the product should search for / connect with other devices in the network\"\r\n    },\r\n    {\r\n      \"propertyName\": \"On-device Data Processing\",\r\n      \"value\": \"the product does process data locally by default\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Account Required for Device Bootstrapping\",\r\n      \"value\": \"the product does need an account to be used\"\r\n    },\r\n    {\r\n      \"propertyName\": \"Ensure Informed Consent to Changes in Data Processing\",\r\n      \"value\": \"the product provides the functionality to compare current and new Privacy Policy\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices/with-privacy-values",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"with-privacy-values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Device without PP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"This is another One Without PP\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"https://example.com/device-info\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Import of many devices",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "api-key-123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/robin/Documents/Uni/SoSe25/CSP Lab/dev/AllDevicesCSV.CSV"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8443/devices/csv",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8443",
+							"path": [
+								"devices",
+								"csv"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Devices without PP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/devices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Devices with PPs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/devices/with-privacy-values",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"with-privacy-values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device with PP by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/devices/byName/PetTec Cam Lite",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"byName",
+								"PetTec Cam Lite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device with PP by Name (but does not exist)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/devices/byName/not existing device",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"byName",
+								"not existing device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Device Names",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/devices/findAllNames",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"findAllNames"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Device (for example new Url)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"UPDATED New Test Device\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"NEW URL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Device (no device with that id)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"New Test Device\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"NEW URL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices/9999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Device by DeviceId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"New Test Device\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"NEW URL\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices/32",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Device by DeviceId (Device does not exist)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"New Test Device\",\r\n  \"deviceType\": \"Smart Home Hub\",\r\n  \"functionalClassification\": \"Home Automation\",\r\n  \"imageUrl\": \"https://example.com/device-image.jpg\",\r\n  \"url\": \"NEW URL\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/devices/33333",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"devices",
+								"33333"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DevicePrivacyValueController",
+			"item": [
+				{
+					"name": "Get all DevicePrivacyValues for a Device by DeviceID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/device-privacy-values/byDeviceId/4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device-privacy-values",
+								"byDeviceId",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all DevicePrivacyValues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/device-privacy-values",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device-privacy-values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update DevicePrivacyValue by DeviceId and PrivacyPropertyId but not validated",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "is not compliant with CRA",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/device-privacy-values/byDeviceId/19/byPropertyId/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device-privacy-values",
+								"byDeviceId",
+								"19",
+								"byPropertyId",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete DevicePrivacyValue by DeviceId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/device-privacy-values/byDeviceId/19",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device-privacy-values",
+								"byDeviceId",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete DevicePrivacyValue by DeviceName",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/device-privacy-values/byDeviceName/Another One",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device-privacy-values",
+								"byDeviceName",
+								"Another One"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create DevicePrivacyValue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"device\": {\r\n    \"id\": 19\r\n  },\r\n  \"privacyProperty\": {\r\n    \"id\": 2\r\n  },\r\n  \"value\": \"Mocked Value\",\r\n  \"mock\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/device-privacy-values",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"device-privacy-values"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PrivacyPropertyController",
+			"item": [
+				{
+					"name": "Create PP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"name\": \"Fake PP\",\r\n    \"description\": \"IoT-Products provide information conforming with the Cyber Resilience Act.\",\r\n    \"category\": \"random\",\r\n    \"metric\": \"{is compliant / is not compliant} with CRA\",\r\n    \"validatable\": true,\r\n    \"allowedValues\": \"is compliant with CRA, is not compliant with CRA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all PrivacyProperties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PrivacyProperty by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"name\": \"Fake PP\",\r\n    \"description\": \"IoT-Products provide information conforming with the Cyber Resilience Act.\",\r\n    \"category\": \"random\",\r\n    \"metric\": \"{is compliant / is not compliant} with CRA\",\r\n    \"validatable\": true,\r\n    \"allowedValues\": \"is compliant with CRA, is not compliant with CRA\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PrivacyProperty by Id (Not Found)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"name\": \"Fake PP\",\r\n    \"description\": \"IoT-Products provide information conforming with the Cyber Resilience Act.\",\r\n    \"category\": \"random\",\r\n    \"metric\": \"{is compliant / is not compliant} with CRA\",\r\n    \"validatable\": true,\r\n    \"allowedValues\": \"is compliant with CRA, is not compliant with CRA\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties/3333",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties",
+								"3333"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PrivacyProperty by Name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"name\": \"Fake PP\",\r\n    \"description\": \"IoT-Products provide information conforming with the Cyber Resilience Act.\",\r\n    \"category\": \"random\",\r\n    \"metric\": \"{is compliant / is not compliant} with CRA\",\r\n    \"validatable\": true,\r\n    \"allowedValues\": \"is compliant with CRA, is not compliant with CRA\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties/byName/Data Minimization",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties",
+								"byName",
+								"Data Minimization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PrivacyProperty by Name (Not Found)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"name\": \"Fake PP\",\r\n    \"description\": \"IoT-Products provide information conforming with the Cyber Resilience Act.\",\r\n    \"category\": \"random\",\r\n    \"metric\": \"{is compliant / is not compliant} with CRA\",\r\n    \"validatable\": true,\r\n    \"allowedValues\": \"is compliant with CRA, is not compliant with CRA\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties/byName/Non Existing Property",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties",
+								"byName",
+								"Non Existing Property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update PP by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"name\": \"Fake PP\",\r\n    \"description\": \"IoT-Products provide information conforming with the Cyber Resilience Act.\",\r\n    \"category\": \"NEW CATEGORY\",\r\n    \"metric\": \"{is compliant / is not compliant} with CRA\",\r\n    \"validatable\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties/99",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties",
+								"99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update PP by Id (Not Found)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"name\": \"Fake PP\",\r\n    \"description\": \"IoT-Products provide information conforming with the Cyber Resilience Act.\",\r\n    \"category\": \"NEW CATEGORY\",\r\n    \"metric\": \"{is compliant / is not compliant} with CRA\",\r\n    \"validatable\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties/9999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete PrivacyProperty by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/privacy-properties/99999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"privacy-properties",
+								"99999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "api-key-123",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
