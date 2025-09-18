@@ -22,6 +22,7 @@ import com.kbyb.know_before_you_buy.repository.DeviceRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
+// Service class for managing Device entities and related operations.
 @Service
 @RequiredArgsConstructor
 public class DeviceService {
@@ -31,14 +32,17 @@ public class DeviceService {
     private final PrivacyPropertyService privacyPropertyService;
     private final DevicePrivacyValueService devicePrivacyValueService;
 
+    // Finds and returns a list of all devices.
     public List<Device> findAll() {
         return deviceRepository.findAll();
     }
 
+    // Finds and returns a list of the names of all devices.
     public ArrayList<String> findAllNames() {
         return deviceRepository.findAllNames();
     }
 
+    // Retrieves all devices along with their associated privacy values, mapped to a DTO.
     public List<DeviceWithPrivacyValuesDTO> getAllDevicesWithPrivacyProperties() {
         List<DeviceWithPrivacyValuesDTO> devicesWithPrivacyValuesDTOs = new ArrayList<>();
         List<Device> allDevicesWithoutPP = deviceRepository.findAll();
@@ -49,10 +53,12 @@ public class DeviceService {
         return devicesWithPrivacyValuesDTOs;
     }
 
+    // Finds a single device by its ID.
     public Optional<Device> findById(Integer id) {
         return deviceRepository.findById(id);
     }
 
+    // Saves a new device to the database. Throws a RuntimeException if a device with the same name already exists.
     public Device save(Device device) {
         if (findAllNames().contains(device.getName())) {
             throw new RuntimeException("Device with the name " + device.getName() + " already exists.");
@@ -61,6 +67,7 @@ public class DeviceService {
         }
     }
 
+    // Deletes a device by its ID.
     public void deleteById(Integer id) {
         deviceRepository.deleteById(id);
     }
@@ -75,6 +82,8 @@ public class DeviceService {
         return new DeviceWithPrivacyValuesDTO(device, privacyValues);
     }
 
+    // Retrieves a device and its associated privacy values by the device name, mapped to a DTO.
+    // Throws a RuntimeException if the device is not found.
     @Transactional
     public Device createDeviceWithValues(DeviceWithPrivacyValuesDTO dto) {
         // Creates the base Device object from DTO
@@ -210,6 +219,7 @@ public class DeviceService {
         return result;
     }
 
+    // Checks if the CSV header matches the expected pattern.
     private void checkCsvPattern(String[] columnNames) throws IOException {
         String[] correctPattern = getColumnNamesPattern();
         for (int i = 0; i < columnNames.length; i++) {
@@ -219,6 +229,7 @@ public class DeviceService {
         }
     }
 
+    // Returns the name of the privacy property for a given index.
     private String getColumnName(int i) {
         String[] columnNames = {
             "Compliance with Cyber Resilience Act",
@@ -278,6 +289,7 @@ public class DeviceService {
         return columnNames[i];
     }
 
+    // Returns the expected CSV header pattern.
     private String[] getColumnNamesPattern() {
         String[] columnNamesPatter = {
             "name",

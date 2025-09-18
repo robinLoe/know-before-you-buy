@@ -5,6 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+
+/**
+ * Represents a Privacy Property entity in the database.
+ * This class is a JPA entity that maps to a database table. It uses Lombok's @Data annotation to
+ * automatically generate boilerplate code like getters, setters, toString, equals, and hashCode.
+ */
 @Entity
 @Data
 public class PrivacyProperty {

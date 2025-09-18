@@ -7,6 +7,10 @@ import com.kbyb.know_before_you_buy.model.Device;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Data Transfer Object (DTO) for transferring a Device entity along with its associated privacy property values.
+ * This class is used to structure data for API responses
+ */
 @Data
 @NoArgsConstructor // Needed for JSON deserialization by Jackson
 public class DeviceWithPrivacyValuesDTO {

@@ -10,6 +10,7 @@ import com.kbyb.know_before_you_buy.model.DevicePrivacyValue;
 import com.kbyb.know_before_you_buy.model.PrivacyProperty;
 import com.kbyb.know_before_you_buy.repository.DevicePrivacyValueRepository;
 
+// Service class for managing DevicePrivacyValue entities.
 @Service
 public class DevicePrivacyValueService {
 
@@ -19,36 +20,42 @@ public class DevicePrivacyValueService {
         this.repository = repository;
     }
 
+    // Retrieves all DevicePrivacyValue entities from the database.
     public List<DevicePrivacyValue> findAll() {
         return repository.findAll();
     }
 
+    // Finds all privacy values for a given device ID, mapped to a DTO.
     public List<PrivacyValueDTO> findPrivacyValuesByDeviceId(Integer deviceId) {
         return repository.findPrivacyValuesByDeviceId(deviceId);
     }
 
+    // Finds all privacy values for a given device name, mapped to a DTO.
     public List<PrivacyValueDTO> findPrivacyValuesByDeviceName(String deviceName) {
         return repository.findPrivacyValuesByDeviceName(deviceName);
     }
 
+    // Finds a single DevicePrivacyValue by its ID.
     public Optional<DevicePrivacyValue> findById(Integer id) {
         return repository.findById(id);
     }
 
+    // Saves a DevicePrivacyValue entity to the database.
     public DevicePrivacyValue save(DevicePrivacyValue dpv) {
         return repository.save(dpv);
     }
 
-    //TO TEST
+    // Retrieves a DevicePrivacyValue by its device ID and privacy property ID, or throws a RuntimeException if not found.
     public DevicePrivacyValue getDpvByDeviceIdAndPropertyId(Integer deviceId, Integer propertyId){
         return repository.getDpvByDeviceIdAndPropertyId(deviceId, propertyId).orElseThrow(() -> new RuntimeException("DevicePrivacyValue not found"));
     }
 
-    //TO TEST
+    // Retrieves a DevicePrivacyValue by its device name and privacy property ID, or throws a RuntimeException if not found.
     public DevicePrivacyValue getDpvByDeviceNameAndPropertyId(String deviceName, Integer propertyId){
         return repository.getDpvByDeviceNameAndPropertyId(deviceName, propertyId).orElseThrow(() -> new RuntimeException("DevicePrivacyValue not found"));
     }
 
+    // Validates and updates the value of a DevicePrivacyValue.
     public DevicePrivacyValue validateAndUpdateDpvValue(String value, DevicePrivacyValue dpv){
         PrivacyProperty prop = dpv.getPrivacyProperty();
         // Validation for allowed values
@@ -74,6 +81,7 @@ public class DevicePrivacyValueService {
         return dpv;
     }
 
+    // Deletes a DevicePrivacyValue entry by its ID.
     public void deleteById(Integer id) {
         repository.deleteById(id);
     }

@@ -7,10 +7,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+/**
+ * Represents a Device entity in the database.
+ * This class is a JPA entity that maps to a database table. It uses Lombok's @Data annotation to
+ * automatically generate boilerplate code like getters, setters, toString, equals, and hashCode.
+ */
 @Entity
 @Data
 public class Device {
-    
+    /**
+     * The @Id annotation marks this field as the primary key of the entity.
+     * @GeneratedValue configures the primary key generation strategy to be IDENTITY,
+     * which relies on an auto-incremented database column.
+     */
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
@@ -24,6 +33,7 @@ public class Device {
     @Column(length = 2048) // to support long urls
     private String imageUrl;
 
+    // The URL for the device's product page.
     @Column(length = 2048) // to support long urls
     private String url;
 }

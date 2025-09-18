@@ -34,6 +34,7 @@ public class ApiKeyFilter extends OncePerRequestFilter {
         "/v3/api-docs", "/swagger-ui", "/swagger-ui.html", "/swagger-ui/", "/actuator", "/actuator/health"
     };
 
+    // Checks if the given request URI starts with any of the excluded paths.
     private boolean isExcludedPath(HttpServletRequest request) {
         String path = request.getRequestURI();
         for (String p : EXCLUDE_PATHS) {
@@ -42,6 +43,16 @@ public class ApiKeyFilter extends OncePerRequestFilter {
         return false;
     }
 
+    /**
+     * The main filter method that performs the API key validation logic.
+     * This method is executed once per request.
+     *
+     * @param request The incoming HttpServletRequest.
+     * @param response The HttpServletResponse to be sent.
+     * @param filterChain The FilterChain to continue processing the request.
+     * @throws ServletException if a servlet-related error occurs.
+     * @throws IOException if an I/O error occurs.
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,

@@ -10,6 +10,13 @@ import com.kbyb.know_before_you_buy.service.PrivacyPropertyCsvImportService;
 @Configuration
 public class DataLoaderConfig {
 
+    /**
+     * Initializes the database with privacy properties from a CSV file
+     * if the corresponding table is empty.
+     * The CommandLineRunner is a Spring Boot feature that runs a block of code
+     * right after the application context is loaded. This is useful for one-time
+     * setup tasks like populating a database with initial data.
+     */
     @Bean
     @SuppressWarnings("unused")
     CommandLineRunner initDatabase(PrivacyPropertyCsvImportService importService,
