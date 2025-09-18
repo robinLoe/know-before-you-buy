@@ -1,5 +1,6 @@
 package com.kbyb.know_before_you_buy.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.kbyb.know_before_you_buy.dto.CsvImportResult;
 import com.kbyb.know_before_you_buy.dto.DeviceWithPrivacyValuesDTO;
+import com.kbyb.know_before_you_buy.dto.FailedImportEntry;
 import com.kbyb.know_before_you_buy.model.Device;
 import com.kbyb.know_before_you_buy.service.DevicePrivacyValueService;
 import com.kbyb.know_before_you_buy.service.DeviceService;
@@ -72,6 +77,29 @@ public class DeviceController {
         }
     }
 
+    @Operation(summary = "Create one ore more Devices including its Privacy Values via CSV Upload")
+    @PostMapping("/csv")
+    public ResponseEntity<CsvImportResult> uploadCsvFile(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            CsvImportResult result = new CsvImportResult();
+            result.addFailure(new FailedImportEntry("No File", "Please upload a file to analyze."));
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            String csvContent = new String(file.getBytes());
+            CsvImportResult result = deviceService.createDevicesFromCSV(csvContent);
+            
+            // Wenn der Service das Ergebnis zurückgibt, sende es im Response-Body
+            return new ResponseEntity<>(result, HttpStatus.OK);
+
+        } catch (IOException e) {
+            // Behandle Fehler beim Lesen der Datei
+            CsvImportResult result = new CsvImportResult();
+            result.addFailure(new FailedImportEntry("Failed reading file", "Error processing the CSV-file: " + e.getMessage()));
+            return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     // Read ------------------------------------------------------------
 
     @Operation(summary = "Get all devices")

@@ -14,7 +14,7 @@ Property ID;Name;Description;Category;Metric;Has Accepted Values;Accepted Value
 14;Clear and Transparent Personal Data Processing Information;Information on the processing of personal data is provided in a concise, transparent, intelligible, and easily accessible form.;Usability of Transparency;document informing the user about data processing (privacy policy, visualization);false;
 15;Recipient of Information;Who receives the data obtained through the use of an IoT product.;Transparency Information;list of data recipients;false;
 16;App Permissions Required;Which access permissions must be granted for the use of an app belonging to an IoT product.;Transparency Information;list of necessary permissions;false;
-17;Clarification of Data Processing;The system informs users about the processing of data.;Transparency Information;user {are / are not} informed about the processing of data;true;users are informed about the processing of data, users are not informed about the processing of data
+17;Clarification of Data Processing Process;The system informs users about the processing of data.;Transparency Information;user {are / are not} informed about the processing of data;true;users are informed about the processing of data, users are not informed about the processing of data
 18;Data Sharing;Whether data collected from the use of an IoT product is shared with third parties;Transparency Information;list of shared data types and recipients;false;
 19;Encryption Status for User Passwords;Whether access data is stored in encrypted form on the IoT products or the associated apps;Implementation Detail;User passwords {are / are not} stored encrypted;true;User passwords are stored encrypted, User passwords are not stored encrypted
 20;Optional Security Review;If an additional security review has taken place, it should be clear exactly which aspects were examined and who performed the tests.;Transparency Information;list of considered aspects, entity that performed the review (if possible, the whole security review?);false;
@@ -32,7 +32,7 @@ Property ID;Name;Description;Category;Metric;Has Accepted Values;Accepted Value
 32;Exploration Functionality;The IoT-Product provides functionality for users to browse specific system interactions, e.g., a list of communications within the system, a list of all communications over the internet, or visualizations of activities. ;Transparency Function;list of system interactions the user can browse;false;
 33;Investigation Functionality;The IoT-Product features a log of events including errors, updates etc. This feature would allow for in-depth tracking and thoroughly investigation of occurring issues.;Transparency Function;list of all events that get logged;false;
 34;Being Notified When Something Needs Attention;The IoT-Product triggers notifications when users' attention is needed (e.g., in case of information being sent over the internet, errors occur, in case of abnormal or suspicious occurrences;Transparency Function;list of events that trigger notifications;false;
-36;User Control;The IoT-Product offers to manage multiple authorized users.;Control Function;the product {can / can not} manage multiple authorized users;true;the product can manage multiple authorized users, the product cannot manage multiple authorized users
+36;User Control;The IoT-Product offers to manage multiple authorized users.;Control Function;the product {can / can not} manage multiple authorized users;true;the product can manage multiple authorized users, the product can not manage multiple authorized users
 39;User Interaction and Engagement;The IoT-Product offers an appropriate user interface (e.g. through an app or a web application) ;Control Function;list of provided interface options;false;
 40;Privacy Enhancing Technologies;The IoT-Product features PETs to safeguard users' privacy;Implementation Detail;list of used privacy enhancing technologies;false;
 41;Data Portability;The IoT-Product / related service features portability functions to migrate from/to other products;Control Function;list of portability options;false;
@@ -51,24 +51,3 @@ Property ID;Name;Description;Category;Metric;Has Accepted Values;Accepted Value
 56;On-device Data Processing;The data is preferably processed locally.;Implementation Detail;the product {does / does not} process data locally by default;true;the product does process data locally by default, the product does not process data locally by default
 57;Account Required for Device Bootstrapping;An account is required to set up the IoT device.;Implementation Detail;the product {does / does not} need an account to be used;true;the product does need an account to be used, the product does not need an account to be used
 59;Ensure Informed Consent to Changes in Data Processing; An interface enables users to compare current and new terms side-by-side with highlighted changes. This ensures informed consent.;Transparency Function;the product provides the functionality to compare current and new Privacy Policy;false;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;
-;;;;;;

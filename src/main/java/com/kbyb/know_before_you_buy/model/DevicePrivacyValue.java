@@ -25,6 +25,7 @@ public class DevicePrivacyValue {
     @JoinColumn(name= "privacy_property_id")
     private PrivacyProperty privacyProperty;
 
+    @Column(length = 2048) // for potentially long text fields
     private String value;
 
     // The type is boolean and not Boolean, because this field cant be null. Default value is false
