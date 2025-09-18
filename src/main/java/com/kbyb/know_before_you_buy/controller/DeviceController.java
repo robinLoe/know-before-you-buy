@@ -167,6 +167,21 @@ public class DeviceController {
         }
     }
 
+    @Operation(summary = "Get a device including privacy values by its id")
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved the device and its privacy values"),
+        @ApiResponse(responseCode = "404", description = "Device with the specified id was not found")
+    })
+    @GetMapping("/byId/{id}")
+    public ResponseEntity<?> getDeviceWithPrivacyValuesById(@PathVariable Integer id) {
+        try {
+            return ResponseEntity.ok(deviceService.getDeviceWithPrivacyValuesById(id));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", e.getMessage()));
+        }
+    }
+    
+
     // Update -----------------------------------------------------------
     @Operation(summary = "Update a device")
     @ApiResponses({

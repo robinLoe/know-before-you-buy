@@ -82,6 +82,16 @@ public class DeviceService {
         return new DeviceWithPrivacyValuesDTO(device, privacyValues);
     }
 
+    public DeviceWithPrivacyValuesDTO getDeviceWithPrivacyValuesById(Integer id) {
+        Device device = deviceRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Device not found"));
+
+        List<PrivacyValueDTO> privacyValues = devicePrivacyValueRepository
+                .findPrivacyValuesByDeviceId(id);
+
+        return new DeviceWithPrivacyValuesDTO(device, privacyValues);
+    }
+
     // Retrieves a device and its associated privacy values by the device name, mapped to a DTO.
     // Throws a RuntimeException if the device is not found.
     @Transactional
