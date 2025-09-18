@@ -149,8 +149,8 @@ public class DeviceService {
             } else {
                 throw new IllegalArgumentException(
                         "Invalid value for property: " + prop.getName()
-                        + ".\nHas to be one of these:\n" + prop.getAllowedValues()
-                        + "\nbut was\n" + pv.getValue()
+                        + ".Has to be one of these:" + prop.getAllowedValues()
+                        + "but was" + pv.getValue()
                 );
             }
         } else {

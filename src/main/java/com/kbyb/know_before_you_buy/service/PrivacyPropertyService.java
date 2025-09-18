@@ -1,4 +1,5 @@
 package com.kbyb.know_before_you_buy.service;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class PrivacyPropertyService {
         return repository.findAll();
     }
 
+    // Finds and returns a list of the names of all PrivacyProperties.
+    public ArrayList<String> findAllNames() {
+        return repository.findAllNames();
+    }
+
     // Finds a PrivacyProperty by its ID. Throws a RuntimeException if not found.
     public PrivacyProperty findById(Integer id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("PrivacyProperty with the ID: " + id + " was not found"));
@@ -33,7 +39,11 @@ public class PrivacyPropertyService {
 
     // Saves a PrivacyProperty entity to the database.
     public PrivacyProperty save(PrivacyProperty pp) {
-        return repository.save(pp);
+        if (findAllNames().contains(pp.getName())) {
+            throw new RuntimeException("PrivacyProperty with the name " + pp.getName() + " already exists.");
+        } else {
+            return repository.save(pp);
+        }
     }
 
     // Deletes a PrivacyProperty by its ID.
