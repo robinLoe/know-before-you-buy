@@ -203,8 +203,8 @@ public class DeviceService {
                     device.setName(fields[0]);
                     device.setDeviceType(fields[1]);
                     device.setFunctionalClassification(fields[2]);
-                    device.setImageUrl(fields[3]);
-                    device.setUrl(fields[4]);
+                    device.setUrl(fields[3]);
+                    device.setImageUrl(fields[4]);
                     savedDevice = save(device);
 
                     for (int i = 5; i < fields.length; i++) {
